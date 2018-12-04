@@ -63,5 +63,6 @@ delete t
 	match(n) delete n => deletes all the node 
 	
 	MATCH (n)
-	DETACH DELETE n => delete all nodes and relationship
+	DETACH n 
+	DELETE n => delete all nodes and relationship
 */
