@@ -69,3 +69,25 @@ MATCH (p1:Person{name:'Joe'})
 CREATE UNIQUE (p1)-[:LOVES]->(someone)
 RETURN p1;
 
+-- Match all the nodes having following relationship
+MATCH p=(n)-[:MEETS|KNOWS|LOVES]-()
+RETURN p;
+
+-- Creates a node having name scott if it doesnot exists. 
+MATCH (joe:Person{name:'Joe'})
+CREATE UNIQUE (joe)-[:MEETS]->(another:Person{name:'Scott'})
+RETURN another;
+
+-- Create label node if missing
+MATCH (scott:Person{name:'Scott'})
+CREATE UNIQUE (scott)-[:KNOWS]->(c:Professor{name:'Jennifer'})
+RETURN scott, c;
+
+-- Create relationship if it is missing
+MATCH (alice:Person{name:'Alice'}), (others)
+WHERE others.name IN ['Gary', 'Chloe']
+CREATE UNIQUE (alice)-[r:MEETS]->(others)
+RETURN r;
+
+
+
