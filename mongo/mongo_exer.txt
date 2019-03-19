@@ -1,0 +1,20 @@
+<--------------- Create customer db --------------->
+use customer
+
+<--------------- Create collection user --------------->
+db.createCollection('user')
+
+<--------------- Create simple datastructure --------------->
+db.user.insert({f_name: 'Sunil', l_name: 'Thapa'})
+
+<--------------- Create array datastructure --------------->
+db.user.insert({f_name: 'Subash', l_name: 'Dhungana', hobby:['A in SE', 'B in AI']})
+
+<--------------- Create object datastructure --------------->
+db.user.insert({f_name: 'Rakshak', l_name: 'Bajracharya', custType: {status: ['regular', 'special'], contact: '564213897'}})
+
+<--------------- pretty command --------------->
+db.collectionName.find().pretty()
+
+<--------------- find specific data pretty command --------------->
+db.collectionName.find({f_name: 'Sunil'}).pretty()

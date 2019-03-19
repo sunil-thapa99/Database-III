@@ -1,0 +1,35 @@
+Open mongo.exe from command line
+
+<-------------- View db ---------------->
+show dbs
+
+<-------------- Create db ---------------->
+use dbName
+
+<-------------- Create New User ---------------->
+db.createUser({user:'Sunil', pwd:'123456789', roles: [ "readWrite", "dbAdmin" ]})
+
+<-------------- Authenticate User	 ---------------->
+db.auth({user:'Sunil', pwd:'123456789'})
+
+<-------------- View Collections(Table) ---------------->
+show collections
+
+<-------------- Create Collections ---------------->
+db.createCollection('CollectionName', {options})
+
+<-------------- Drop Collections ---------------->
+db.collectionName.drop()
+
+<-------------- Insert Documents(Attribute) ---------------->
+db.collectionName.insert({field:'value'})
+Ex: db.Lolwa.insert({f_name:'Sunil', l_name:'Thapa', level:'Student'})
+
+<-------------- View Documents ---------------->
+db.collectionName.find({})
+
+<-------------- Insert Array in Documents ---------------->
+db.Lolwa.insert({f_name:'Sunil', course_enrolled:['com111', 'com121'] , level:'Student'})
+
+<-------------- Insert Complex data in Documents ---------------->
+db.Lolwa.insert({f_name:'Neumer', l_name:'Kathlin', course_enrolled:['com121', 'com131'], performance:[{grade:['A', 'B', 'A'], CGPA:3.5}]})
